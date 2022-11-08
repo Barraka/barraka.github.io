@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@600&family=Open+Sans:wght@500&family=Orbitron:wght@500&family=Poppins&family=Roboto&display=swap');
+@media only screen and (max-width: 600px) {
+    :root {
+        --idealdimension: calc(min(100vw,100vh) * 0.8);
+    }
+}
+@media only screen and (min-width: 601px) {
+    :root {
+        --idealdimension:calc(min(100vw, 100vh) * 0.5);
+    }
+}
+:root {
+    --colorPlayer1Text1:rgb(179, 9, 9);
+    --colorPlayer1Text2:rgb(94, 47, 65);
+    --colorPlayer1Text3:rgb(65, 11, 11);
+    --colorPlayer2Text1:rgb(9, 12, 179);
+    --colorPlayer2Text2:rgb(35, 16, 122);
+    --colorPlayer2Text3:rgb(13, 6, 51);
+    --gamecolor1:#edede9;
+    --gamecolor2:#d6ccc2;
+    --gamecolor3:#b6aba0;
+    --gamecolor4:#e3d5ca;
+    --gamecolor5:#d5bdaf;
+    --gamecolor5:#83c5be;
+    --gamecolor6:#645852;
+    --buttoncolor1:#4aa6df;
+    --buttoncolor2:#1d3557;
+    --buttoncolor3:#95a1b3;
+    --titlecolor:rgba(19, 188, 255, 0.9);
+}
+* {
+    margin:0;
+    box-sizing: border-box;
+    user-select: none;
+}
+body {    
+    background-color: gray;
+    background-image: url('fabric.png');
+    width:100%;
+    height:100%;
+}
+.pagetitle {    
+    background-color: var(--gamecolor2);
+    padding-bottom: 10px;
+}
+@media only screen and (max-width: 600px) {
+    .texttitle{
+        font-family: 'Open Sans', sans-serif;
+        font-size: 30px;
+        text-align: center;
+        font-weight: 600;
+        padding:10px 0px 0px;
+        color:var(--titlecolor);
+        text-shadow: 1px 1px var(--colorPlayer2Text3),2px 0 var(--colorPlayer2Text3), 0 0 25px var(--colorPlayer2Text3), 5px 5px 10px var(--colorPlayer2Text3);
+    }
+}
+@media only screen and (min-width: 601px) {
+    .texttitle{
+        font-family: 'Open Sans', sans-serif;
+        font-size: 60px;
+        text-align: center;
+        font-weight: 900;
+        padding:10px 0px 0px;
+        color:var(--titlecolor);
+        text-shadow: 1px 1px var(--colorPlayer2Text3),2px 0 var(--colorPlayer2Text3), 0 0 25px var(--colorPlayer2Text3), 5px 5px 10px var(--colorPlayer2Text3);
+    }
+}
+
+.score {
+    margin:20px;
+    background-color: var(--gamecolor3);
+    border-radius: 100vw;
+    width: var(--idealdimension);
+    height: 50px;
+    overflow: hidden;
+    white-space:nowrap;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Orbitron',sans-serif;
+    font-size: 22px;
+    color:var(--colorPlayer1Text1);    
+    background-image: linear-gradient(to bottom, var(--buttoncolor2), var(--buttoncolor1),var(--buttoncolor2));
+}
+
+.board {
+    font-family: 'Dosis', sans-serif;
+    display: grid;
+    grid-template-columns: repeat(3, calc(var(--idealdimension) * 0.33));
+    grid-template-rows: repeat(3, calc(var(--idealdimension) * 0.33));
+    background-image: linear-gradient(rgb(57, 109, 83), rgb(19, 83, 143));
+    gap:5px;
+    margin:30px auto;
+    outline:2px solid var(--gamecolor6);   
+    box-shadow: 0px 0px 60px 30px rgb(28, 26, 31);
+    overflow: hidden;
+}
+.boardX{
+    cursor: url(X.svg), pointer;
+}
+.boardO{
+    cursor: url(O.svg), pointer;
+}
+.boardHover{
+    box-shadow: inset 0px 0px 3px 3px lime;
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    z-index: 1;
+}
+
+.board .cell {
+    position:relative;
+    background-color: var(--gamecolor3);
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color:antiquewhite;
+    font-size: calc(min(100vh, 100vw) * 0.1); 
+    overflow: hidden;
+    
+}
+.board .cellshadow {
+    box-shadow: inset 0px 0px 15px 5px var(--gamecolor6);
+}
+.board .cell.player1 {
+  color:var(--colorPlayer1Text1);
+  text-shadow: -1px 0 var(--colorPlayer1Text3), 0 1px var(--colorPlayer1Text3), 1px 0 var(--colorPlayer1Text3), 0 -1px var(--colorPlayer1Text3),1px 1px 2px var(--colorPlayer1Text3), 0 0 25px var(--colorPlayer1Text2), 5px 5px 10px var(--colorPlayer1Text3);
+}
+.board .cell.player2 {
+    color:var(--colorPlayer2Text1);
+    text-shadow: -1px 0 var(--colorPlayer2Text3), 0 1px var(--colorPlayer2Text3), 1px 0 var(--colorPlayer2Text3), 0 -1px var(--colorPlayer2Text3),1px 1px 2px var(--colorPlayer2Text3), 0 0 25px var(--colorPlayer2Text2), 5px 5px 10px var(--colorPlayer2Text3);
+  }
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    position:relative;
+}
+
+
+.container button {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    width:calc(min(100vw, 100vh) * 0.5 / 3);
+    
+}
+#buttonreset {
+    font-size: 1rem;
+    padding:10px;
+    border-radius: 100vw;
+    background-color: var(--buttoncolor3);
+    border:2px solid var(--buttoncolor2);
+    color:var(--colorPlayer2Text3);
+    min-width:150px;
+}
+#buttonreset:hover {
+    background-color: var(--colorPlayer2Text3);
+    border:2px solid var(--gamecolor3);
+    color:var(--gamecolor1);
+}
+/* ------- selection display -------- */
+.selection {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    margin:50px;
+    top:-20px;
+    background: linear-gradient(var(--buttoncolor1), var(--gamecolor5));
+    font-size: 1.25rem;
+    font-weight: 700;
+    color:var(--colorPlayer2Text3);
+    border-radius: 10px;
+    border:4px solid var(--colorPlayer2Text3);
+    z-index: 3;
+    box-shadow: inset 0px 0px 15px 5px var(--colorPlayer2Text3);
+    width:var(--idealdimension);
+}
+.selectionHide {
+    visibility: hidden;
+}
+.selection .text1 {
+    margin:10px 0px;
+}
+.row {
+    height:initial;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:30px;
+    padding:0;
+    margin:15px 0px;
+}
+.selection .cont1 {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex:1;
+}
+.selection .cont1 .opponenttype {
+    margin: 15px 0px;
+}
+
+.selection .row img {
+
+    width: calc(var(--idealdimension) * 0.3);;
+    height: calc(var(--idealdimension) * 0.3);;
+    
+    border-radius: 50%;
+    outline:4px solid rgb(65, 65, 65);
+    box-shadow: 0px 0px 15px 15px var(--colorPlayer2Text3), 5px 5px 12px 5px var(--colorPlayer2Text3); 
+}
+
+.selection .row .cont1:hover img {
+    outline:6px solid rgb(73, 245, 96);
+}
+.selection .row .cont1:hover .opponenttype {
+    color:rgb(73, 245, 96);
+}
+.selection .row .imgselect {
+    outline:4px solid rgb(73, 245, 96);
+    box-shadow: 0px 0px 15px 15px rgb(21, 99, 32), 5px 5px 12px 5px rgb(51, 161, 66); 
+}
+.selection input[type=text]{
+    margin:5px 0px 20px;
+    border-radius: 100vw;
+    width:80%;
+    font-size: 1.25rem;
+    text-align: center;
+    font-family: inherit;
+    font-family: 'Poppins',sans-serif;
+    color:var(--colorPlayer2Text3);
+    border:2px solid var(--colorPlayer2Text3);
+    box-shadow:  0px 0px 15px 5px var(--colorPlayer2Text3);
+    background-color: antiquewhite;
+}
+.selection input[type=text]:disabled {
+    background-color: gray;
+}
+.selection input[type=text]:focus{
+    border:2px solid var(--titlecolor);
+    outline:2px solid var(--titlecolor);
+}
+.selection button {
+    width:40%;
+    font-size: 1.5rem;
+    background-color: var(--gamecolor1);
+    color:var(--buttoncolor2);    
+}
+/* ------- winner display -------- */
+.displaywinner {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position:absolute;
+    z-index: 2;
+    width: var(--idealdimension);
+    height: var(--idealdimension);
+    margin:50px;
+    top:calc(min(100vh, 100vw) * 0.05);
+    background-color: var(--gamecolor5);
+    font-size: 1.25rem;
+    font-weight: 700;
+    color:var(--buttoncolor2);
+    border-radius: 10px;
+    background: linear-gradient(var(--buttoncolor1), var(--gamecolor5));
+    border:4px solid var(--colorPlayer2Text3);
+    box-shadow: inset 0px 0px 15px 5px var(--colorPlayer2Text3);
+}
+.winnerhide {
+    visibility: hidden;
+}
+.backdrop {
+    position:fixed;
+    width:100vw;
+    height: 100vh;
+    z-index: 1;
+    top:0;
+    backdrop-filter: blur(2px);
+    background-color: #64585270;
+}
+.backdroptoggle {
+    visibility: hidden;
+}
+.winnertitle {
+    font-size: 25px;
+    margin:15px 0px;
+}
+.winnername {
+    color:var(--colorPlayer1Text1);
+    font-size: 30px;
+    margin:15px 0px;
+    width:90%;
+    overflow: hidden;
+    text-align: center;
+}
+.okbutton {
+    margin-top: 15px;
+}
