@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.173f936b.css",
-    "main.js": "./static/js/main.6ba7c40a.js",
+    "main.js": "./static/js/main.851f50e2.js",
     "static/media/pl.png": "./static/media/pl.00538507d516abb571b6.png",
     "static/media/Alex Oxlade-Chamberlain.png": "./static/media/Alex Oxlade-Chamberlain.ff68aa6cf1953dd3a336.png",
     "static/media/Danny Ward.png": "./static/media/Danny Ward.95191e5290044f49fd99.png",
@@ -64,10 +64,10 @@
     "static/media/Hogo Lloris.png": "./static/media/Hogo Lloris.f8e3ef7c49dc809787e9.png",
     "index.html": "./index.html",
     "main.173f936b.css.map": "./static/css/main.173f936b.css.map",
-    "main.6ba7c40a.js.map": "./static/js/main.6ba7c40a.js.map"
+    "main.851f50e2.js.map": "./static/js/main.851f50e2.js.map"
   },
   "entrypoints": [
     "static/css/main.173f936b.css",
-    "static/js/main.6ba7c40a.js"
+    "static/js/main.851f50e2.js"
   ]
 }
